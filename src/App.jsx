@@ -6,6 +6,7 @@ import Die from './Components/Die'
 function App() {
 
   function allNewDice() {
+    console.log('allNewDice');
     const newDice = [];
     for (let i = 0; i < 10; i++) {
       newDice.push(Math.floor(Math.random() * 6) + 1);
@@ -19,14 +20,16 @@ function App() {
     return <Die value={num} key={index}/>
   })
 
-  console.log(dice)
+  function rollDice() {
+    setDice(allNewDice())
+  }
 
   return (
     <main>
       <div className='container'>
       {diceElements}
       </div>
-      <button>Roll</button>
+      <button onClick={rollDice}>Roll</button>
     </main>
   )
 }
