@@ -1,7 +1,9 @@
-export default function Die(props) {
+export default function Die({ value, isHeld }) {
   return (
-    <div className='die'>
-      <h1>{props.value}</h1>
-      </div>
+    <div 
+      className='die' 
+      style={{backgroundColor: isHeld === true ? '#59E391' : '#FFFFFF'}}>
+        <h1>{value}</h1>
+    </div>
   )
 }
