@@ -15,7 +15,7 @@ function App() {
   
   const [dice, setDice] = React.useState(() => allNewDice())
 
-  const diceArray = dice.map((num, index) => {
+  const diceElements = dice.map((num, index) => {
     return <Die value={num} key={index}/>
   })
 
@@ -24,8 +24,9 @@ function App() {
   return (
     <main>
       <div className='container'>
-      {diceArray}
+      {diceElements}
       </div>
+      <button>Roll</button>
     </main>
   )
 }

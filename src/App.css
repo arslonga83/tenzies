@@ -15,8 +15,10 @@ main {
   background-color: #F5F5F5;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 48px;
 }
 
 .container {
@@ -37,6 +39,17 @@ main {
   align-items: center;
 }
 
-/* .die-text {
-  font-size: 2rem;
-} */
+button {
+  background: #5035FF;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+  border-radius: 3.81277px;
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 16px;
+  width: 100px;
+  height: 36px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
