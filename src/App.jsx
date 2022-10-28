@@ -1,32 +1,30 @@
 
 import './App.css'
+import React from 'react'
 import Die from './Components/Die'
 
 function App() {
 
   function allNewDice() {
-    const dice = [];
+    const newDice = [];
     for (let i = 0; i < 10; i++) {
-      dice.push(Math.floor(Math.random() * 6) + 1);
+      newDice.push(Math.floor(Math.random() * 6) + 1);
     }
-    return dice;
+    return newDice;
   }
   
-  console.log(allNewDice());
+  const [dice, setDice] = React.useState(() => allNewDice())
+
+  const diceArray = dice.map((num, index) => {
+    return <Die value={num} key={index}/>
+  })
+
+  console.log(dice)
 
   return (
     <main>
       <div className='container'>
-        <Die value={6} />
-        <Die value={3} />
-        <Die value={2} />
-        <Die value={1} />
-        <Die value={5} />
-        <Die value={3} />
-        <Die value={1} />
-        <Die value={4} />
-        <Die value={6} />
-        <Die value={4} />
+      {diceArray}
       </div>
     </main>
   )
