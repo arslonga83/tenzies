@@ -6,6 +6,14 @@ import { nanoid } from 'nanoid'
 
 function App() {
 
+  const [dice, setDice] = React.useState(() => allNewDice())
+
+  const [tenzies, setTenzies] = React.useState(false)
+
+  React.useEffect(() => {
+    console.log('state changed')
+  }, [dice])
+
   function allNewDice() {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
@@ -18,8 +26,6 @@ function App() {
     return newDice
   }
   
-  const [dice, setDice] = React.useState(() => allNewDice())
-
   const diceElements = dice.map((die) => {
     return <Die 
               value={die.value} 
