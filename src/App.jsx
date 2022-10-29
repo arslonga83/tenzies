@@ -20,16 +20,21 @@ function App() {
   
   const [dice, setDice] = React.useState(() => allNewDice())
 
-  const diceElements = dice.map((die, index) => {
+  const diceElements = dice.map((die) => {
     return <Die 
               value={die.value} 
               key={die.id} 
               isHeld={die.isHeld} 
+              holdDice={holdDice}
               />
   })
 
   function rollDice() {
     setDice(allNewDice())
+  }
+
+  function holdDice() {
+    console.log('hold')
   }
 
   return (
