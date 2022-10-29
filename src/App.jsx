@@ -35,9 +35,22 @@ function App() {
   }
 
   function holdDice(id) {
-    console.log(id)
-  }
-
+    setDice(() => {
+      const newDice = [];
+      dice.map(die => {
+        if(die.id === id) {
+          newDice.push({
+            ...die,
+            isHeld: !die.isHeld
+          })
+        } else {
+          newDice.push(die)
+        }  
+    })
+    return newDice
+  })
+}
+  
   return (
     <main>
       <div className='container'>

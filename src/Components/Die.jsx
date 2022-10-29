@@ -5,7 +5,7 @@ export default function Die({ value, isHeld, id, holdDice }) {
   }
 
   return (
-    <div className='die' style={styles} onClick={() => holdDice(id)}>
+    <div className='die' style={styles} onClick={() => holdDice( id)}>
         <h1>{value}</h1>
     </div>
   )
