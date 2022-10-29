@@ -31,13 +31,27 @@ function App() {
   })
 
   function rollDice() {
-    setDice(allNewDice())
+    setDice(prevDice => {
+      const newDice = [];
+      prevDice.map(die => {
+        if (die.isHeld === true) {
+          newDice.push(die)
+        } else {
+          newDice.push({
+            value: Math.floor(Math.random() * 6) + 1, 
+            isHeld: false,
+            id: nanoid()
+          }) 
+        }
+      })
+      return newDice;
+    })
   }
 
   function holdDice(id) {
-    setDice(() => {
+    setDice(prevDice => {
       const newDice = [];
-      dice.map(die => {
+      prevDice.map(die => {
         if(die.id === id) {
           newDice.push({
             ...die,
