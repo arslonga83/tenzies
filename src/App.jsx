@@ -6,30 +6,29 @@
 
 import './App.css'
 import React from 'react'
+import Timer from './Components/Timer'
 import Die from './Components/Die'
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
-import { formatDuration, intervalToDuration } from 'date-fns'
+import { intervalToDuration } from 'date-fns'
 
 function App() {
 
   // NEW TIMER FUNCTION IN PROGRESS
-//   const start = new Date()
-//   let duration = intervalToDuration({
-//     start: start, 
-//     end: new Date(),
-//   })
 
-// function timer() {
-//   let duration = intervalToDuration({
-//     start: start, 
-//     end: new Date(),
-//   })
-//   console.log(formatDuration(duration))
-// }
+  const start = new Date()
 
-// setInterval(timer, 1000)
+  function timer() {
+    let duration = intervalToDuration({
+      start: start, 
+      end: new Date(),
+   })
+    return duration.seconds
+  }
 
+  setInterval(timer, 1000)
+
+  
 
   const [dice, setDice] = React.useState(() => allNewDice())
 
@@ -112,6 +111,7 @@ function App() {
     <main>
       {tenzies ? <Confetti /> : ''}
       <h1 className="title">Tenzies</h1>
+      <Timer />
       <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className='container'>
         {diceElements}
