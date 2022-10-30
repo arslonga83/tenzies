@@ -10,25 +10,9 @@ import Timer from './Components/Timer'
 import Die from './Components/Die'
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
-import { intervalToDuration } from 'date-fns'
+
 
 function App() {
-
-  // NEW TIMER FUNCTION IN PROGRESS
-
-  const start = new Date()
-
-  function timer() {
-    let duration = intervalToDuration({
-      start: start, 
-      end: new Date(),
-   })
-    return duration.seconds
-  }
-
-  setInterval(timer, 1000)
-
-  
 
   const [dice, setDice] = React.useState(() => allNewDice())
 

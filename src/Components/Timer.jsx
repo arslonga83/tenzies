@@ -1,25 +1,26 @@
-import { intervalToDuration } from 'date-fns'
-
+// import { intervalToDuration } from 'date-fns'
+import React from 'react'
 
 export default function Timer() {
   // // NEW TIMER FUNCTION IN PROGRESS
 
-  const start = new Date()
+  const [time, setTime] = React.useState(0);
 
-  function timer() {
-    let duration = intervalToDuration({
-      start: start, 
-      end: new Date(),
-   })
-    return duration.seconds
-  }
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(prev => prev + 1) 
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-  setInterval(timer, 1000)
-
+  //SEPARATE MINUTES?
+  // function formatTimer() {
+  //   const min = time / 60;
+  //   const sec = time % 60;
+  //   return (`${Math.floor(min)} : ${sec}`)
+  // } 
   
-
-
   return (
-  <h4>{timer()}</h4>
+  <h4>{time}</h4>
   )
 }
