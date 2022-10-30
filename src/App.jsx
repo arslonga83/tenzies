@@ -78,6 +78,11 @@ function App() {
     return newDice
   })
 }
+
+  function newGame() {
+    setDice(allNewDice)
+    setTenzies(false)
+  }
   
   return (
     <main>
@@ -87,7 +92,10 @@ function App() {
       <div className='container'>
         {diceElements}
       </div>
-      <button onClick={rollDice}>{tenzies ? 'New Game' : 'Roll'}</button>
+      <button 
+        onClick={tenzies ? newGame : rollDice}>
+          {tenzies ? 'New Game' : 'Roll'}
+      </button>
     </main>
   )
 }
