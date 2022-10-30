@@ -11,7 +11,15 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false)
 
   React.useEffect(() => {
-    console.log('state changed')
+    const win = dice.every(obj => {
+      if(obj.isHeld === true && obj.value === dice[0].value) {
+        return true
+      }
+    })
+    if (win) {
+      setTenzies(true)
+      console.log('You Win!')
+    } 
   }, [dice])
 
   function allNewDice() {
