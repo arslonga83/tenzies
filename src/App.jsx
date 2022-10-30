@@ -9,8 +9,27 @@ import React from 'react'
 import Die from './Components/Die'
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
+import { formatDuration, intervalToDuration } from 'date-fns'
 
 function App() {
+
+  // NEW TIMER FUNCTION IN PROGRESS
+//   const start = new Date()
+//   let duration = intervalToDuration({
+//     start: start, 
+//     end: new Date(),
+//   })
+
+// function timer() {
+//   let duration = intervalToDuration({
+//     start: start, 
+//     end: new Date(),
+//   })
+//   console.log(formatDuration(duration))
+// }
+
+// setInterval(timer, 1000)
+
 
   const [dice, setDice] = React.useState(() => allNewDice())
 
