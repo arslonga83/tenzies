@@ -1,3 +1,8 @@
+//IDEAS TO ADD
+//track number of rolls
+//optional pips instead of numbers on dice
+//track time...maybe live timer on screen?
+//save best time and/or rolls in local storage...with name?
 
 import './App.css'
 import React from 'react'
