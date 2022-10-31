@@ -2,30 +2,29 @@ import React from 'react'
 
 export default function (props) {
 
-  // const scores = [
-  //   {
-  //     name: 'Jeff',
-  //     score: 4
-  //   },
-  //   {
-  //     name: 'Jessica', 
-  //     score: 7
-  //   },
-  //   {
-  //     name: 'Jo',
-  //     score: 9
-  //   }
-  // ]
-
-  const [scores, setScores] = React.useState([{name:'jeff',score:4}])
+  const [scores, setScores] = React.useState([])
 
   const [name, setName] = React.useState('')
 
-  const [showForm, setshowForm] = React.useState(true)
+  const [showForm, setShowForm] = React.useState(() => checkWins())
+
+  function checkWins () {
+    if (scores.length < 4) {
+      return true
+    } else {
+      scores.every(record => {
+        if (record.score < rollCount) {
+          return false
+        } else {
+          return true
+        }
+      })
+    }
+  }
 
   const scoreElements = scores.map(score => {
     return (
-      <p>{score.name} - {score.score}</p>
+      <p>{score.name} - {score.score} rolls</p>
     )
   })
 
@@ -42,7 +41,7 @@ export default function (props) {
       ]
     }
     )
-    setshowForm(prev => !prev)
+    setShowForm(prev => !prev)
     console.log(scores)
   }
 

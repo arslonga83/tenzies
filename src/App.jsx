@@ -17,7 +17,7 @@ function App() {
 
   const [dice, setDice] = React.useState(() => allNewDice())
 
-  const [tenzies, setTenzies] = React.useState(true)
+  const [tenzies, setTenzies] = React.useState(false)
 
   const [rollCount, setRollCount] = React.useState(0)
 
@@ -102,7 +102,7 @@ function App() {
   
   return (
     <main>
-      {/* {tenzies ? <Confetti /> : ''} */}
+      {tenzies ? <Confetti /> : ''}
       <h1 className="title">Tenzies</h1>
       {tenzies ? '' : <Timer />}
       <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
