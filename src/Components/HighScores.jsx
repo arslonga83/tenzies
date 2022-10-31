@@ -37,9 +37,9 @@ export default function (props) {
     }
   }
 
-  const scoreElements = scores.map(score => {
+  const scoreElements = scores.map((score, index) => {
     return (
-      <p>{score.name} - {score.score} rolls</p>
+      <p key={index}>{score.name} - {score.score} rolls</p>
     )
   })
 
