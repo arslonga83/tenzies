@@ -2,6 +2,21 @@ import React from 'react'
 
 export default function (props) {
 
+  // const testScores = [
+  //   {
+  //     name: 'Jeff',
+  //     score: 5
+  //   },
+  //   {
+  //     name: 'Jessica',
+  //     score: 4
+  //   },
+  //   {
+  //     name: 'Jo',
+  //     score: 6
+  //   }
+  // ]
+
   const [scores, setScores] = React.useState([])
 
   const [name, setName] = React.useState('')
@@ -35,6 +50,10 @@ export default function (props) {
 
   function handleSubmit() {
     setScores(prev => {
+      if (prev.length === 3) {
+        prev.sort((a, b) => a.score > b.score ? 1 : -1)
+        prev.pop()
+      }
       return [
         ...prev,
         {name: name, score: props.rollCount}
