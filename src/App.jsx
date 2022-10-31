@@ -17,7 +17,7 @@ function App() {
 
   const [dice, setDice] = React.useState(() => allNewDice())
 
-  const [tenzies, setTenzies] = React.useState(false)
+  const [tenzies, setTenzies] = React.useState(true)
 
   const [rollCount, setRollCount] = React.useState(0)
 
