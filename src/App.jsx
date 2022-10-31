@@ -8,6 +8,7 @@ import './App.css'
 import React from 'react'
 import Timer from './Components/Timer'
 import Die from './Components/Die'
+import HighScores from './Components/HighScores'
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
 
@@ -96,6 +97,7 @@ function App() {
     setTenzies(false)
   }
   
+
   
   return (
     <main>
@@ -110,7 +112,8 @@ function App() {
         onClick={tenzies ? newGame : rollDice}>
           {tenzies ? 'New Game' : 'Roll'}
       </button>
-      <h4>{`You rolled ${rollCount} times`}</h4>
+      {tenzies ? <HighScores /> : <h4>{`You rolled ${rollCount} times`}</h4>}
+      
     </main>
   )
 }
