@@ -1,12 +1,10 @@
 //IDEAS TO ADD
 //track number of rolls
 //optional pips instead of numbers on dice
-//track time...maybe live timer on screen?
-//save best time and/or rolls in local storage...with name?
+//save best rolls in local storage...with name?
 
 import './App.css'
 import React from 'react'
-import Timer from './Components/Timer'
 import Die from './Components/Die'
 import HighScores from './Components/HighScores'
 import { nanoid } from 'nanoid'
@@ -98,13 +96,10 @@ function App() {
     setRollCount(0)
   }
   
-
-  
   return (
     <main>
       {tenzies ? <Confetti /> : ''}
       <h1 className="title">Tenzies</h1>
-      {tenzies ? '' : <Timer />}
       <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className='container'>
         {diceElements}
