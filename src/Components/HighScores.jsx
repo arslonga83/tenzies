@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function (props) {
+export default function ({rollCount, scores, name, setName, setScores}) {
 
   // const testScores = [
   //   {
@@ -17,9 +17,9 @@ export default function (props) {
   //   }
   // ]
 
-  const [scores, setScores] = React.useState([])
+  // const [scores, setScores] = React.useState([])
 
-  const [name, setName] = React.useState('')
+  // const [name, setName] = React.useState('')
 
   const [showForm, setShowForm] = React.useState(() => checkWins())
 
@@ -56,7 +56,7 @@ export default function (props) {
       }
       return [
         ...prev,
-        {name: name, score: props.rollCount}
+        {name: name, score: rollCount}
       ]
     }
     )

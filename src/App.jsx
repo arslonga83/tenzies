@@ -15,9 +15,34 @@ function App() {
 
   const [dice, setDice] = React.useState(() => allNewDice())
 
-  const [tenzies, setTenzies] = React.useState(false)
+  const [tenzies, setTenzies] = React.useState(true)
 
   const [rollCount, setRollCount] = React.useState(0)
+
+  const [scores, setScores] = React.useState([])
+
+  const [name, setName] = React.useState('')
+
+  // function handleChange(event) {
+  //   setName(event.target.value)
+  //   console.log(name)
+  // }
+
+  // function handleSubmit(name) {
+  //   setScores(prev => {
+  //     if (prev.length === 3) {
+  //       prev.sort((a, b) => a.score > b.score ? 1 : -1)
+  //       prev.pop()
+  //     }
+  //     return [
+  //       ...prev,
+  //       {name: name, score: rollCount}
+  //     ]
+  //   }
+  //   )
+  //   setShowForm(prev => !prev)
+  //   console.log(scores)
+  // }
 
   React.useEffect(() => {
     const win = dice.every(obj => {
@@ -108,7 +133,7 @@ function App() {
         onClick={tenzies ? newGame : rollDice}>
           {tenzies ? 'New Game' : 'Roll'}
       </button>
-      {tenzies ? <HighScores rollCount={rollCount}/> : <h4>{`You rolled ${rollCount} times`}</h4>}
+      {tenzies ? <HighScores rollCount={rollCount} scores={scores} name={name} setName={setName} setScores={setScores}/> : <h4>{`You rolled ${rollCount} times`}</h4>}
       
     </main>
   )
