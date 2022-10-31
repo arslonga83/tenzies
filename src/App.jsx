@@ -1,8 +1,3 @@
-//IDEAS TO ADD
-
-//optional pips instead of numbers on dice
-
-
 import './App.css'
 import React from 'react'
 import Die from './Components/Die'
@@ -21,6 +16,7 @@ function App() {
 
   const [name, setName] = React.useState('')
 
+  //Check local storage for previous high scores
   const [scores, setScores] = React.useState(() => {
     if (localStorage.getItem('scores')) {
       return JSON.parse(localStorage.getItem('scores'))
@@ -29,10 +25,12 @@ function App() {
     }
   })
 
+  //update storage every time scores state changes
   React.useEffect(() => {
     localStorage.setItem('scores', JSON.stringify(scores))
   }, [scores])
 
+  
   React.useEffect(() => {
     const win = dice.every(obj => {
       if(obj.isHeld === true && obj.value === dice[0].value) {
@@ -63,6 +61,7 @@ function App() {
               key={die.id} 
               isHeld={die.isHeld} 
               holdDice={holdDice}
+              tenzies={tenzies}
               />
   })
 
