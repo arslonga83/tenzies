@@ -17,10 +17,6 @@ export default function ({rollCount, scores, name, setName, setScores}) {
   //   }
   // ]
 
-  // const [scores, setScores] = React.useState([])
-
-  // const [name, setName] = React.useState('')
-
   const [showForm, setShowForm] = React.useState(() => checkWins())
 
   function checkWins () {

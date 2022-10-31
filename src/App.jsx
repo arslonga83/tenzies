@@ -1,7 +1,7 @@
 //IDEAS TO ADD
-//track number of rolls
+
 //optional pips instead of numbers on dice
-//save best rolls in local storage...with name?
+
 
 import './App.css'
 import React from 'react'
@@ -15,34 +15,23 @@ function App() {
 
   const [dice, setDice] = React.useState(() => allNewDice())
 
-  const [tenzies, setTenzies] = React.useState(true)
+  const [tenzies, setTenzies] = React.useState(false)
 
   const [rollCount, setRollCount] = React.useState(0)
 
-  const [scores, setScores] = React.useState([])
-
   const [name, setName] = React.useState('')
 
-  // function handleChange(event) {
-  //   setName(event.target.value)
-  //   console.log(name)
-  // }
+  const [scores, setScores] = React.useState(() => {
+    if (localStorage.getItem('scores')) {
+      return JSON.parse(localStorage.getItem('scores'))
+    } else {
+      return []
+    }
+  })
 
-  // function handleSubmit(name) {
-  //   setScores(prev => {
-  //     if (prev.length === 3) {
-  //       prev.sort((a, b) => a.score > b.score ? 1 : -1)
-  //       prev.pop()
-  //     }
-  //     return [
-  //       ...prev,
-  //       {name: name, score: rollCount}
-  //     ]
-  //   }
-  //   )
-  //   setShowForm(prev => !prev)
-  //   console.log(scores)
-  // }
+  React.useEffect(() => {
+    localStorage.setItem('scores', JSON.stringify(scores))
+  }, [scores])
 
   React.useEffect(() => {
     const win = dice.every(obj => {
@@ -133,8 +122,10 @@ function App() {
         onClick={tenzies ? newGame : rollDice}>
           {tenzies ? 'New Game' : 'Roll'}
       </button>
-      {tenzies ? <HighScores rollCount={rollCount} scores={scores} name={name} setName={setName} setScores={setScores}/> : <h4>{`You rolled ${rollCount} times`}</h4>}
-      
+      {tenzies ? 
+        <HighScores rollCount={rollCount} scores={scores} name={name} setName={setName} setScores={setScores}/> 
+        : 
+        <h4>{`You rolled ${rollCount} times`}</h4>}
     </main>
   )
 }
