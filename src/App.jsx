@@ -101,7 +101,7 @@ function App() {
   
   return (
     <main>
-      {tenzies ? <Confetti /> : ''}
+      {/* {tenzies ? <Confetti /> : ''} */}
       <h1 className="title">Tenzies</h1>
       {tenzies ? '' : <Timer />}
       <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
@@ -112,7 +112,7 @@ function App() {
         onClick={tenzies ? newGame : rollDice}>
           {tenzies ? 'New Game' : 'Roll'}
       </button>
-      {tenzies ? <HighScores /> : <h4>{`You rolled ${rollCount} times`}</h4>}
+      {tenzies ? <HighScores rollCount={rollCount}/> : <h4>{`You rolled ${rollCount} times`}</h4>}
       
     </main>
   )
