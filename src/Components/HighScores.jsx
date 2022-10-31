@@ -21,6 +21,8 @@ export default function (props) {
 
   const [name, setName] = React.useState('')
 
+  const [showForm, setshowForm] = React.useState(true)
+
   const scoreElements = scores.map(score => {
     return (
       <p>{score.name} - {score.score}</p>
@@ -40,24 +42,27 @@ export default function (props) {
       ]
     }
     )
+    setshowForm(prev => !prev)
     console.log(scores)
   }
 
-
-  
-
   return (
     <div className='scores'>
-      <h2>Congratulations! You got a high score!</h2>
-      <input 
+      {showForm ? 
+       <div className='form'>
+       <h2>Congratulations! You got a high score!</h2>
+        <input 
         type='text' 
         placeholder="type your name" 
         id='nameInput'
         onChange={handleChange}>
         </input>
-        <button onClick={handleSubmit}>submit</button>
+        <button onClick={handleSubmit} className='submit'>submit</button>
+      </div> :
+      <div>
       <h2>High Scores</h2>
-      {scoreElements}
+      {scoreElements} 
+      </div> }
     </div>
   )
 }

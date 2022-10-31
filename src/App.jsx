@@ -95,6 +95,7 @@ function App() {
   function newGame() {
     setDice(allNewDice)
     setTenzies(false)
+    setRollCount(0)
   }
   
 
